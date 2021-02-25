@@ -1,0 +1,26 @@
+// Abstract
+@import "abstract/variables";
+@import "abstract/mixins";
+@import "abstract/placeholders";
+
+// Vendors
+@import "vendors/slick/slick", "vendors/slick/slick-theme";
+
+// Base
+@import "base/fonts";
+@import "base/reset";
+@import "base/base";
+@import "base/global";
+
+// Layout
+@import "layout/wrapper";
+
+// Components
+@import "components/header";
+@import "components/nav";
+@import "components/footer";
+@import "components/banner";
+@import "components/btn";
+
+// Pages
+@import "pages/home";

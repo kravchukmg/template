@@ -1,0 +1,14 @@
+%center_block {
+	max-width: $site_width + px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+%clearfix {
+	&::after {
+		content: "";
+		display: block;
+		width: 100%;
+		clear: both;
+	}
+}

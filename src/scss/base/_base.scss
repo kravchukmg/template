@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $base-font-size;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1.6rem;
+  line-height: 1.2;
+  background-color: $color-bg-primary;
+  color: $color-text-primary;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+i {
+  display: inline-block;
+}
+
+picture {
+  display: inline-block;
+}

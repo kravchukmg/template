@@ -1,0 +1,152 @@
+@mixin font($font_size, $line_height, $font_family: sans-serif) {
+  font: #{$font_size/$base_font_size}rem/#{$line_height/$base_font_size}rem $font_family;
+}
+
+@mixin adaptive-font($pc_font, $pc_line, $mob_font, $mob_line, $font_family: sans-serif) {
+  $delta_size: $pc_font - $mob_font;
+  $delta_height: $pc_line - $mob_line;
+  $width: $site_width - 320;
+  font-size: calc(#{$mob_font + px} + #{$delta_size} * ((100vw - 320px) / #{$width}));
+  line-height: calc(#{$mob_line + px} + #{$delta_height} * ((100vw - 320px) / #{$width}));
+  font-family: $font_family;
+}
+
+@mixin background($url, $top: top, $left: left, $size: cover, $color: transparent, $repeat: no-repeat) {
+  background-image: $url;
+  background-position: $top $left;
+  background-size: $size;
+  background-color: $color;
+  background-repeat: $repeat;
+}
+
+@mixin triangle_bottom($width: 5px, $height: 5px, $color: #000000, $position: absolute, $top: 0, $right: 0) {
+  &::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border: $width solid transparent;
+    border-top: $height solid $color;
+    position: $position;
+    top: $top;
+    right: $right;
+  }
+}
+
+@mixin before($height: 1px, $width: 100%, $top: 0, $left: 0, $color: red) {
+  &::before {
+    content: "";
+    display: block;
+    height: $height;
+    width: $width;
+    position: absolute;
+    top: $top;
+    left: $left;
+    background-color: $color;
+  }
+}
+
+@mixin after($height: 1px, $width: 100%, $bottom: 0, $left: 0, $color: red) {
+  &::after {
+    content: "";
+    display: block;
+    height: $height;
+    width: $width;
+    position: absolute;
+    bottom: $bottom;
+    left: $left;
+    background-color: $color;
+  }
+}
+
+@mixin respond-to($media) {
+  // 320 +
+  @if $media == mobile_plus {
+    @media only screen and (min-width: $mobile-portrait) {
+      @content;
+    }
+  }
+  // 374 -
+  @if $media == mobile_small {
+    @media only screen and (max-width: $mobile-small - 1) {
+      @content;
+    }
+  }
+  // 320 - 480
+  @if $media == mobile_portrait {
+    @media only screen and (min-width: $mobile-portrait) and (max-width: $mobile-landscape - 1) {
+      @content;
+    }
+  }
+  // 480 - 767
+  @if $media == mobile_landscape {
+    @media only screen and (min-width: $mobile-landscape) and (max-width: $tablet-portrait - 1) {
+      @content;
+    }
+  }
+  // 320 - 767
+  @if $media == mobile {
+    @media only screen and (min-width: $mobile-portrait) and (max-width: $tablet-portrait - 1) {
+      @content;
+    }
+  }
+  // 768 - 1280 landscape
+  @if $media == tablet_landscape {
+    @media only screen and (min-width: $tablet-portrait) and (max-width: $tablet-landscape) and (orientation: landscape) {
+      @content;
+    }
+  }
+  // 768 - 1280 portrait
+  @if $media == tablet_portrait {
+    @media only screen and (min-width: $tablet-portrait) and (max-width: $tablet-landscape) and (orientation: portrait) {
+      @content;
+    }
+  }
+  // 768 - 1280 portrait and landscape
+  @else if $media == tablet {
+    @media only screen and (min-width: $tablet-portrait) and (max-width: $tablet-landscape - 1) {
+      @content;
+    }
+  }
+  // 768 +
+  @else if $media == tablet_plus {
+    @media only screen and (min-width: $tablet-portrait) {
+      @content;
+    }
+  }
+  // 1280 -
+  @else if $media == desktop_minus {
+    @media only screen and (max-width: $tablet-landscape - 1) {
+      @content;
+    }
+  }
+  // 1280 - 1440
+  @else if $media == desktop {
+    @media only screen and (min-width: $tablet-landscape) and (max-width: $desktop) {
+      @content;
+    }
+  }
+  // 1280 - 1600
+  @else if $media == desktop_extra {
+    @media only screen and (min-width: $tablet-landscape) and (max-width: $desktop-extra) {
+      @content;
+    }
+  }
+  // 1280 +
+  @else if $media == desktop_plus {
+    @media only screen and (min-width: $tablet-landscape) {
+      @content;
+    }
+  }
+  // 1600 +
+  @else if $media == screen_plus {
+    @media only screen and (min-width: $break-max) {
+      @content;
+    }
+  }
+  // Site width
+  @else if $media == customise {
+    @media only screen and (max-width: $site_width + px) {
+      @content;
+    }
+  }
+}

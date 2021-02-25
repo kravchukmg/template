@@ -1,0 +1,39 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maksym Kravchuk",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "browserify": "^16.5.1",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-file-include": "^2.2.2",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-iconfont": "^10.0.3",
+    "gulp-iconfont-css": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify-es": "^2.0.0",
+    "node-sass": "^4.14.1",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "last 5 versions",
+    "> 1%"
+  ],
+  "description": "",
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
+}
