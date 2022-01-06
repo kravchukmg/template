@@ -187,7 +187,7 @@ $slick-opacity-not-active: 0.25 !default;
             }
         }
         &.slick-active button:before {
-            color: $yellow_0;
+            color: $slick-arrow-color;
             opacity: $slick-opacity-default;
         }
     }
